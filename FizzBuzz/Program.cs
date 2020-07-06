@@ -19,6 +19,14 @@ namespace FizzBuzz
                 {
                     toPrint += "Buzz";
                 }
+                if (i % 7 == 0)
+                {
+                    toPrint += "Bang";
+                }
+                if (i % 11 == 0)
+                {
+                    toPrint = "Bong";
+                }
                 
                 //If the number triggered no rules, print just the number
                 if (toPrint == "")
