@@ -8,11 +8,29 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i < 361; i++)
+            Console.WriteLine("Enter a maximum number to FizzBuzz up to: ");
+            int maxNumber = PromptUserForPositiveInteger()+1;
+            
+            Console.WriteLine("\nCommencing FizzBuzz:");
+            
+            for (int i = 1; i < maxNumber; i++)
             {
                 string phrase = GetPhraseForNumber(i);
                 PrintPhrase(phrase);
             }
+        }
+
+        static int PromptUserForPositiveInteger()
+        {
+            int integerToReturn;
+            string consoleInput;
+            
+            do
+            {
+                consoleInput = Console.ReadLine();
+            } while (Int32.TryParse(consoleInput, out integerToReturn) == false || integerToReturn <= 0);
+
+            return integerToReturn;
         }
         
         static string GetPhraseForNumber(int number)
