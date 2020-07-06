@@ -8,14 +8,15 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
+            var enabledRules = new string[] {"3", "5", "7", "11", "13", "17"}.Intersect(args);
+            
             Console.WriteLine("Enter a maximum number to FizzBuzz up to: ");
             int maxNumber = PromptUserForPositiveInteger()+1;
             
             Console.WriteLine("\nCommencing FizzBuzz:");
-            
             for (int i = 1; i < maxNumber; i++)
             {
-                string phrase = GetPhraseForNumber(i);
+                string phrase = GetPhraseForNumber(i, enabledRules);
                 PrintPhrase(phrase);
             }
         }
@@ -33,10 +34,10 @@ namespace FizzBuzz
             return integerToReturn;
         }
         
-        static string GetPhraseForNumber(int number)
+        static string GetPhraseForNumber(int number, IEnumerable<string> rules)
         {
             string phrase = "";
-            List<string> wordsToSay = ApplyRulesToNumber(number); 
+            List<string> wordsToSay = ApplyRulesToNumber(number, rules); 
             
             foreach (string word in wordsToSay)
             {
@@ -51,32 +52,37 @@ namespace FizzBuzz
             return phrase;
         }
         
-        static List<string> ApplyRulesToNumber(int i)
+        static List<string> ApplyRulesToNumber(int i, IEnumerable<string> rules)
         {
             List<string> wordsToSay = new List<string>();
+
+            bool isApplicableRule(int i, int divider)
+            {
+                return i % divider == 0 && rules.Contains(divider.ToString());
+            }
             
-            if (i % 3 == 0)
+            if (isApplicableRule(i,3))
             {
                 wordsToSay.Add("Fizz");
             }
-            if (i % 13 == 0)
+            if (isApplicableRule(i,13))
             {
                 wordsToSay.Add("Fezz");
             }
-            if (i % 5 == 0)
+            if (isApplicableRule(i,5))
             {
                 wordsToSay.Add("Buzz");
             }
-            if (i % 7 == 0)
+            if (isApplicableRule(i,7))
             {
                 wordsToSay.Add("Bang");
             }
-            if (i % 11 == 0)
+            if (isApplicableRule(i,11))
             {
                 wordsToSay.RemoveAll(word => word != "Fezz");
                 wordsToSay.Add("Bong");
             }
-            if (i % 17 == 0)
+            if (isApplicableRule(i,17))
             {
                 wordsToSay.Reverse();
             }
