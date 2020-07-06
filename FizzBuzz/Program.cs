@@ -56,33 +56,33 @@ namespace FizzBuzz
         {
             List<string> wordsToSay = new List<string>();
 
-            bool isApplicableRule(int i, int divider)
+            bool isApplicableRule(int divider)
             {
                 return i % divider == 0 && rules.Contains(divider.ToString());
             }
             
-            if (isApplicableRule(i,3))
+            if (isApplicableRule(3))
             {
                 wordsToSay.Add("Fizz");
             }
-            if (isApplicableRule(i,13))
+            if (isApplicableRule(13))
             {
                 wordsToSay.Add("Fezz");
             }
-            if (isApplicableRule(i,5))
+            if (isApplicableRule(5))
             {
                 wordsToSay.Add("Buzz");
             }
-            if (isApplicableRule(i,7))
+            if (isApplicableRule(7))
             {
                 wordsToSay.Add("Bang");
             }
-            if (isApplicableRule(i,11))
+            if (isApplicableRule(11))
             {
                 wordsToSay.RemoveAll(word => word != "Fezz");
                 wordsToSay.Add("Bong");
             }
-            if (isApplicableRule(i,17))
+            if (isApplicableRule(17))
             {
                 wordsToSay.Reverse();
             }
