@@ -4,6 +4,7 @@
     <e p="C:\Users\eweedm\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
     <e p="C:\Users\eweedm\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_FizzBuzz.2013804723.00" t="ExcludeRecursive" />
     <e p="C:\Users\eweedm\Documents\Work\Training\FizzBuzz\FizzBuzz" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="FizzBuzz.csproj" t="IncludeRecursive" />
       <e p="FizzBuzz.sln" t="IncludeFlat" />
